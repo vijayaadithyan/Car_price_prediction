@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>BREAST CANSER PREDICTION</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+</head>
+
+<body>
+
+
+
+
+<style>
+  .pred{
+    font: bold;
+    color: green;
+
+  }
+body {
+  background-image: url("static/car.jpg");
+  background-position: 200%;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+
+<h2>CAR PRICE PREDICTION</h2>
+    <h2> PREDICTOR</h2><br>
+<br>
+
+ <div class="login">
+	
+<br>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="Year" placeholder="MODEL OF THE YEAR" required="required" />
+      <input type="text" name="Present_Price" placeholder="PRESENT PRICE " required="required" />
+      <input type="text" name="Kms_Driven" placeholder="KMS DRIVEN" required="required" />
+      <input type="text" name="Fuel_Type" placeholder="FUEL TYPE petrol 0 Diesel 1" required="required" />
+      <input type="text" name="Seller_Type" placeholder="Seller_Type Dealer 0" required="required" />
+      <input type="text" name="Transmission" placeholder="Transmission Mannual 0 Automatic 1" required="required" />
+      <input type="text" name="Owner" placeholder="No of Owners" required="required" />
+      
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br><div class="pred">
+    {{ prediction_text }}
+  </div>
+   <br>
+   <br>
+   <p class="hi">ENJOY THE RIDE</p>
+ </div>
+
+
+</body>
+</html>
